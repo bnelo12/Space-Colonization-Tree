@@ -39,5 +39,5 @@ There are four parameters for generating different types of trees. They are loca
 Also, the position of the leaves can be changed by modifying the constraints in the generateLeaves function.
 
 ##More Information
-For more information visit "http://www.sea-of-memes.com/LetsCode26/LetsCode26.html"(Michael Goodfellow)
+For more information visit http://www.sea-of-memes.com/LetsCode26/LetsCode26.html (Michael Goodfellow)
 
