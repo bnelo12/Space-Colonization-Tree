@@ -22,3 +22,16 @@ Navigate into the directory and open up ghci.
 >	Prelude> :l space_colinization.hs
 
 >	Prelude> main
+
+##Parameters
+There are four parameters for generating different types of trees. The are located in space_colinization.hs. The recomended parameters are:
+>	growDistance         = 10.0
+
+>	maxDistance          = 50.0
+
+>	minDistance          = 10.0
+
+>	numberOfLeaves       = 200
+
+Also the position of the leaves can be changed by modifying the constraints in the generateLeaves function.
+

@@ -36,6 +36,12 @@ main = do
     let model = (trunk, leaves)
     simulate (InWindow "Tree" (600, 800) (20,  20)) (makeColor 0.1 0.1 0.1 1) 5 model (\(branches, leaves) -> Pictures [drawLeaves green leaves , drawBranches white branches]) (growTrunk)
 
+generateLeaves :: Int -> StdGen -> StdGen -> [Leaf]
+generateLeaves n seed1 seed2 = [Leaf (V2d x y) | (x,y) <- zip rands1 rands2]
+    where 
+        rands1 = take n (randomRs (-150, 150) seed1)
+        rands2 = take n (randomRs (0, 300) seed2)
+
 growTrunk :: ViewPort -> Float -> (Trunk, [Leaf]) -> (Trunk, [Leaf])
 growTrunk _ _ (trunk, leaves) = ((grow trunk updatedLeaves),updatedLeaves)
     where updatedLeaves = removeReachedLeaves leaves trunk
@@ -116,12 +122,3 @@ drawBranches c branch = Color c (Pictures (branchesToPictures branch))
 drawLeaves :: Color -> [Leaf] -> Picture
 drawLeaves c leaves = Pictures [Color c ((Translate x y) (Circle 4.0))  | Leaf (V2d x y) <- leaves]
 
-strokeLine :: Int -> Picture -> Picture
-strokeLine a (Line [(x1,y1), (x2,y2)]) = Pictures [Line [(x1+(sin theta)*(fromIntegral i),y1+(cos theta)*(fromIntegral i)), (x2+(sin theta)*(fromIntegral i),y2+(cos theta)*(fromIntegral i))] | i <- [(((-a) `div` 2))..((a `div` 2))]]
-    where theta = atan2 (y2-y1) (x2-x1)
-
-generateLeaves :: Int -> StdGen -> StdGen -> [Leaf]
-generateLeaves n seed1 seed2 = [Leaf (V2d x y) | (x,y) <- zip rands1 rands2]
-    where 
-        rands1 = take n (randomRs (-150, 150) seed1)
-        rands2 = take n (randomRs (0, 300) seed2)
