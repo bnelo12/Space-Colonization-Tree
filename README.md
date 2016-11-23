@@ -8,4 +8,5 @@ This module requires one third-party libraries not included in the base Haskell 
 ###Gloss
 A simple vector graphics library to make rendering easy.
 >	cabal update
+
 >	cabal install gloss
