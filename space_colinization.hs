@@ -39,7 +39,7 @@ main = do
 generateLeaves :: Int -> StdGen -> StdGen -> [Leaf]
 generateLeaves n seed1 seed2 = [Leaf (V2d x y) | (x,y) <- zip rands1 rands2]
     where 
-        rands1 = take n (randomRs (-150, 150) seed1)
+        rands1 = take n (randomRs (-300, 300) seed1)
         rands2 = take n (randomRs (0, 300) seed2)
 
 growTrunk :: ViewPort -> Float -> (Trunk, [Leaf]) -> (Trunk, [Leaf])
