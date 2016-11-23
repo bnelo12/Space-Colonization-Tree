@@ -22,7 +22,7 @@ type Position        = V2d
 
 -- Parameters to genrate the tree
 growDistance         = 10.0
-maxDistance          = 50.0
+maxDistance          = 75.0
 minDistance          = 10.0
 numberOfLeaves       = 200
 
@@ -34,7 +34,7 @@ main = do
     let trunk = (Branch (V2d 0 (-300)) (V2d 0 300) [])
     let leaves = removeReachedLeaves (generateLeaves numberOfLeaves seed1 seed2) trunk
     let model = (trunk, leaves)
-    simulate (InWindow "Tree" (600, 800) (20,  20)) (makeColor 0.1 0.1 0.1 1) 5 model (\(branches, leaves) -> Pictures [drawLeaves green leaves , drawBranches white branches]) (growTrunk)
+    simulate (InWindow "Tree" (600, 800) (20,  20)) (makeColor 0.1 0.1 0.1 1) 6 model (\(branches, leaves) -> Pictures [drawLeaves green leaves , drawBranches white branches]) (growTrunk)
 
 generateLeaves :: Int -> StdGen -> StdGen -> [Leaf]
 generateLeaves n seed1 seed2 = [Leaf (V2d x y) | (x,y) <- zip rands1 rands2]

@@ -3,7 +3,7 @@
 This Haskell file will create non-deterministic fractal based trees using an algorithm called space colinization.
 
 ##Example
-
+![Alt text](/fractalTree1.png?raw=true "Optional Title")
 
 ##Libraries
 This module requires one third-party library not included in the base Haskell instalation for graphics rendering.
